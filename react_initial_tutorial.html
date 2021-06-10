@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>React tutorial</title>
+    <!-- Load React. -->
+    <script
+      src="https://unpkg.com/react@17/umd/react.development.js"
+      crossorigin
+    ></script>
+    <script
+      src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"
+      crossorigin
+    ></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+  </head>
+
+  <body>
+    <div id="root"></div>
+    <script type="text/babel">
+      //React
+      //let innerSpan = React.createElement("span", null, "React by Diego");
+      //let el = React.createElement("h1", { children: innerSpan }); // The second argument is props i coudl pass children, as it is a prop, as an object {children: "React by Diego"} in the 2nd arg.
+      //ReactDOM.render(el, document.getElementById("root")); //ReactDOM, new element, target element
+      //JSX
+
+      //creating elements in JSX and using directly
+      let myTitle = "react by Diego";
+      let myH1 = <h1>{myTitle}</h1>;
+
+      // Creating HTML elements as a functional components
+      let MyPara = () => <h3>Using components</h3>;
+
+      //Using a function that needs an attribute to render
+      // i need to access the props. whatever calssname i pass on the html element, in this case <MyNameDisplay data={myName} />, in Myel func.
+      let MyNameDisplay = (props) => <h2> Hola, {props.myName} </h2>;
+
+      //Uso destructuring para pasar la prop creada por mi directamente, desde props.myLastName
+      let MylastNameDisplay = ({ myLastName }) => (
+        <h2> Mi apellido es: {myLastName} </h2>
+      );
+      console.log(<MyPara id="Hello" />);
+
+      //Full jsx to be rendered in html
+      let Myel = () => {
+        //i can access this within a functional component, by sending it as a prop. in this case data={myName}
+        let myName = "Diego as variable";
+        let myLastName = "moreira";
+        return (
+          <div>
+            {myH1}
+            <MyPara />
+            <MyNameDisplay myName={myName} />
+            <MylastNameDisplay myLastName={myLastName} />
+            <p>Hello JSX</p>
+          </div>
+        );
+      };
+      ReactDOM.render(<Myel />, document.getElementById("root"));
+      // props is the html attrs i could pass it as an object {} when props argument is asked for
+      //This is vanilla JS
+      //el.innerText = "React by Diego";
+      //el.className += "red";
+      //root.appendChild(el);
+
+      //por ahora solo lo estoy mostrando por consola
+      //console.log(el);
+
+      //console.log(React.version);
+    </script>
+  </body>
+</html>
+<!-- component in react, it returns a jsx and then renders it as html  -->
