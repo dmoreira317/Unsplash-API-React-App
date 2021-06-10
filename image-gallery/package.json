@@ -8,10 +8,13 @@
     "@testing-library/user-event": "^12.1.10",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
-    "react-scripts": "4.0.3",
+    "react-scripts": "^1.1.5",
     "web-vitals": "^1.0.1"
   },
   "scripts": {
+    "build:styles": "postcss src/assets/css/tailwind.css -o src/assets/css/styles.css",
+    "prebuild": "yarn build:styles",
+    "prestart": "yarn build:styles",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
@@ -34,5 +37,11 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "autoprefixer": "^10.2.6",
+    "postcss": "^8.3.1",
+    "postcss-cli": "^8.3.1",
+    "tailwindcss": "^2.0.4"
   }
 }
