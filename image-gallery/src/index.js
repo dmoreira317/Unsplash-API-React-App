@@ -5,4 +5,4 @@ import "./assets/css/styles.css";
 
 //This index is responsible for rendering the app only
 
-ReactDOM.render(<App title="Hey there" />, document.getElementById("root"));
+ReactDOM.render(<App />, document.getElementById("root"));
