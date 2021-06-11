@@ -63,45 +63,58 @@ import Images from "./components/Images";
 //double curly braces for accessing the object props for style for instance, one for the prop and another for the style object
 function App() {
   const [title, setTitle] = useState("Hello react");
-  const [isShowing, setIsShowing] = useState(false);
-  const [didMount, setdidMount] = useState(false);
-  const mountRef = useRef(false);
-  function handleClick() {
-    setIsShowing(!isShowing);
-  }
-  useEffect(() => {
-    //Triggered on component mounted, by not using the second argument [],
-    setdidMount(true);
-    console.log("App mounted");
-    setTitle("Title changed by setTitle");
-    return () => {};
-  }, []);
 
-  //Component will update
-  useEffect(() => {
-    //Triggered on component updated, by using the brackets, if the state is passed in those brackets, this useEffect only works for that updated state. Here i check the state of the mounting, which is changed only when app is mounted and only then i give the log for the update below
-    if (mountRef.current) {
-      console.log("App updated");
-    } else {
-      mountRef.current = true;
-    }
-    return () => {};
-  }, [isShowing]);
+  //This states are realted to the toggle button, handle change and effects, which were meant to show the lifecycle of components
+  //   const [isShowing, setIsShowing] = useState(false);
+  //   const [didMount, setdidMount] = useState(false);
+  //   const mountRef = useRef(false);
+
+  // A function to show/hide the images, works along the button in return.
+  //   function handleClick() {
+  //     setIsShowing(!isShowing);
+  //   }
+
+  //All these effects were created alogn with toggle button and handle click to show the components lifecycle
+  //   useEffect(() => {
+  //     //Triggered on component mounted, by not using the second argument [],
+  //     setdidMount(true);
+  //     console.log("App mounted");
+  //     setTitle("Title changed by setTitle");
+  //     return () => {};
+  //   }, []);
+
+  //   //Component will update
+  //   useEffect(() => {
+  //     //Triggered on component updated, by using the brackets, if the state is passed in those brackets, this useEffect only works for that updated state. Here i check the state of the mounting, which is changed only when app is mounted and only then i give the log for the update below
+  //     if (mountRef.current) {
+  //       console.log("App updated");
+  //     } else {
+  //       mountRef.current = true;
+  //     }
+  //     return () => {};
+  //   }, [isShowing]);
+
   return (
     <section className="flex justify-center">
-      {console.log("Rendered")}
-      <div className="w-1/2">
+      {/*console.log("Rendered")*/}
+      <div className="w-10/12">
         <div className="text-center">
           <div className="my-4">{title}</div>
+
+          <Images />
+          {/* // only to use for example, this activates or deactivates the images on-screen
           <div>
-            <button
+             <button
               className="p-1 bg-blue-700 text-white mb-2"
               onClick={handleClick}
             >
               Toggle Image
             </button>
           </div>
+           
           {isShowing ? <Images /> : null}
+           
+          </div>*/}
         </div>
       </div>
     </section>
