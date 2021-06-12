@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from "react";
 import "./assets/css/styles.css";
 import Images from "./components/Images";
 
-//Class based component, less used since the introduction of hooks, and functional components
+//!Class based component, less used since the introduction of hooks, and functional components
 // class App extends React.Component {
 //   constructor(props) {
 //     super(props); //im bringing the props from the React.Component class
@@ -58,13 +58,15 @@ import Images from "./components/Images";
 //     );
 //   }
 // }
+//! end of class based component ------------------------
 
-// just for rendering or static features
+//TODO functional componentsjust for rendering or static features
 //double curly braces for accessing the object props for style for instance, one for the prop and another for the style object
+
 function App() {
   const [title, setTitle] = useState("Hello react");
 
-  //This states are realted to the toggle button, handle change and effects, which were meant to show the lifecycle of components
+  //?This states are related to the toggle button, handle change and effects, which were meant to show the lifecycle of components
   //   const [isShowing, setIsShowing] = useState(false);
   //   const [didMount, setdidMount] = useState(false);
   //   const mountRef = useRef(false);
@@ -93,6 +95,7 @@ function App() {
   //     }
   //     return () => {};
   //   }, [isShowing]);
+  //? end of toggle button states----------------------------------
 
   return (
     <section className="flex justify-center">
