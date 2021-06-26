@@ -166,7 +166,9 @@ export default function images() {
       {/* The hook variable goes here, scrollPosition*/}
       {scrollPosition}
       {/* <h2>Component is updated {varRef.current} times</h2> */}
-      <div className="flex flex-wrap justify-center">
+      <div className="gap-0" style={{
+        columnCount:5
+      }}>
         <ShowImage />
       </div>
       <div className="flex justify-between my-5">
