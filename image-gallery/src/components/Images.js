@@ -2,11 +2,18 @@
 
 import axios from "axios";
 import React, { useEffect, useLayoutEffect, useRef, useState } from "react";
+import useFetchImage from "../utils/hooks/useFetchImage";
+import useScroll from "../utils/hooks/useScroll";
 import Image from "./image";
 
 //?functional component
 export default function images() {
-  const [images, setimages] = useState([]);
+  // const [images, setimages] = useState([]); //!imported via fetchImages hook, right below here
+
+  const [images, setimages] = useFetchImage();
+
+  //I'll import the hook useScroll here, generally, hoooks start with useXxxx names.
+  const scrollPosition = useScroll();
 
   //TODO more useffect tests on image array and input focus ------------
   //This inputref is to hold focus on an input box only
@@ -18,18 +25,21 @@ export default function images() {
   //useffect for mount of inputref
   useEffect(() => {
     inputref.current.focus();
-    axios
-      .get(
-        `${process.env.REACT_APP_UNSPLASH_URL}?client_id=${process.env.REACT_APP_UNSPLASH_KEY}`
-      )
-      .then((res) => {
-        setimages(res.data);
-        //console.log(res);
-      });
+    
+    //TODO Ill use this below as a hook, useFetchImage
+    // axios
+    //   .get(
+    //     `${process.env.REACT_APP_UNSPLASH_URL}?client_id=${process.env.REACT_APP_UNSPLASH_KEY}`
+    //   )
+    //   .then((res) => {
+    //     setimages(res.data);
+    //     //console.log(res);
+    //   });
     //this below is using JS only, above we use the useRef mode.
     // const inputBox = document.getElementById("inputBox");
     // inputBox.focus();
     //console.log(varRef);
+    //TODO
   }, []);
 
   //useffect to keep track of how many updates are made on my images array (just for updates)
@@ -72,6 +82,7 @@ export default function images() {
     //   ...images.slice(0, index),
     //   ...images.slice(index + 1, images.length),
     // ]);
+
     setimages([
       ...images.slice(0, index),
       ...images.slice(index + 1, images.length),
@@ -152,6 +163,8 @@ export default function images() {
 
   return (
     <section>
+      {/* The hook variable goes here, scrollPosition*/}
+      {scrollPosition}
       {/* <h2>Component is updated {varRef.current} times</h2> */}
       <div className="flex flex-wrap justify-center">
         <ShowImage />
