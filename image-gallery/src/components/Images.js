@@ -6,7 +6,7 @@ import InfiniteScroll from "react-infinite-scroll-component"
 import useDebounce from "../utils/hooks/useDebounce";
 
 //?functional component
-export default function images() {
+export default function Images() {
   const [page, setpage] = useState(1)
   const [searchTerm, setsearchTerm] = useState(null)
   const [images, setimages, errors, isLoading] = useFetchImage(page, searchTerm);

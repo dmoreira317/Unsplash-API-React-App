@@ -1,18 +1,20 @@
 import React from "react";
 import "./assets/css/styles.css";
-import Images from "./components/Images";
+import {BrowserRouter as Router, Route, Switch} from "react-router-dom"
+import routes from "./utils/routes";
+import Navbar from "./components/Navbar";
+
 
 function App() {
   return (
-    <section className="flex justify-center">
-      <div className="w-10/12">
-        <div className="text-center">
-
-          <Images />
-     
-        </div>
-      </div>
-    </section>
+    <Router>
+      <Navbar />
+      <Switch>
+        {routes.map((route) => (
+            <Route path={route.path} exact={route.exact} component={route.component}/>
+          ))}
+      </Switch>
+    </Router>
   );
 }
 export default App;
