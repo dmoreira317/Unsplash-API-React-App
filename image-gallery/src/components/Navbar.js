@@ -4,7 +4,7 @@ import firebase from "../config/firebase"
 import AppContext from '../store/AppContext'
 
 export default function Navbar() {
-    const [user, isLoggedIn] = useContext(AppContext)
+    const [isLoggedIn, user] = useContext(AppContext)
     const history = useHistory()
 
     function Logout(){
