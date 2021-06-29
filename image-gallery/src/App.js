@@ -8,6 +8,7 @@ import AppContext from "./store/AppContext";
 import AuthRoute from "./utils/routes/AuthRoute";
 import GuestRoute from "./utils/routes/GuestRoute";
 import Loading from "./components/Loading";
+import NotFound from "./page/404";
 
 
 function App() {
@@ -48,6 +49,9 @@ function App() {
               
                   )}
             )}
+            <Route path="*">
+              <NotFound />
+            </Route>
         </Switch>
       </AppContext.Provider>
     </Router>

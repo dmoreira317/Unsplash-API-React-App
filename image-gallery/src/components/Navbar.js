@@ -1,5 +1,5 @@
-import React, {useEffect, useState, useContext} from 'react'
-import {Link, useHistory} from "react-router-dom"
+import React, {useEffect, useContext} from 'react'
+import {NavLink, useHistory} from "react-router-dom"
 import firebase from "../config/firebase"
 import AppContext from '../store/AppContext'
 
@@ -20,22 +20,26 @@ export default function Navbar() {
     }
 
     return (
-        <nav className="py-5 bg-gray-900 text-white">
+        <nav className="py-5 bg-gray-900 text-white flex justify-between">
                 <ul className="flex justify-between px-10">
-                    <span className="flex">
                         <li className="mr-5">
-                            <Link to="/">Home</Link>
+                            <NavLink to="/" exact activeClassName="underline text-blue-200">Home</NavLink>
                         </li>
                         <li className="mr-5">
-                            <Link to="/gallery">Gallery</Link>
+                            <NavLink activeClassName="underline text-blue-200" to="/gallery">Gallery</NavLink>
                         </li>
-                    </span>
+                 </ul >
+                  <ul className="flex justify-between px-10"> 
                     <li>
                         {
-                            isLoggedIn ?                        (<button onClick={Logout}>Logout</button>): (<Link to="/login">Login</Link>)
+                            isLoggedIn ?                        (<button onClick={Logout}>Logout</button>): (<NavLink activeClassName="underline text-blue-200" to="/login">Login</NavLink>)
                         }
                     </li>
-                </ul>
+                    {!isLoggedIn &&
+                    (<li className="ml-5">
+                         <NavLink activeClassName="underline text-blue-200" to="/signup">Sign up</NavLink>
+                    </li>)}
+               </ul>
         </nav>
     )
 }
