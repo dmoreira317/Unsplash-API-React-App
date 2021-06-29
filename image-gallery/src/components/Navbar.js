@@ -1,7 +1,24 @@
-import React from 'react'
-import {Link} from "react-router-dom"
+import React, {useEffect, useState, useContext} from 'react'
+import {Link, useHistory} from "react-router-dom"
+import firebase from "../config/firebase"
+import AppContext from '../store/AppContext'
 
 export default function Navbar() {
+    const [user, isLoggedIn] = useContext(AppContext)
+    const history = useHistory()
+
+    function Logout(){
+        firebase.auth().signOut().then(
+            (res)=> {
+                history.replace('/login')
+            }
+        ).catch(
+            (e)=>{
+                console.log(e.response.data);
+            }
+        )
+    }
+
     return (
         <nav className="py-5 bg-gray-900 text-white">
                 <ul className="flex justify-between px-10">
@@ -14,7 +31,9 @@ export default function Navbar() {
                         </li>
                     </span>
                     <li>
-                        <Link to="/login">Login</Link>
+                        {
+                            isLoggedIn ?                        (<button onClick={Logout}>Logout</button>): (<Link to="/login">Login</Link>)
+                        }
                     </li>
                 </ul>
         </nav>

@@ -15,7 +15,7 @@ export default function Login() {
         e.preventDefault()
         firebase.auth().signInWithEmailAndPassword(form.email, form.password).then(
             (res)=>{
-                history.push("/") // This takes us to the home page
+                history.replace("/") // This takes us to the home page
                 seterrors("")
                 setisLoading(false)
                 console.log('logged in')
