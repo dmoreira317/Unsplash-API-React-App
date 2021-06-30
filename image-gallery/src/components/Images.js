@@ -18,49 +18,6 @@ export default function Images() {
       ...images.slice(index + 1, images.length),
     ]);
   }
-  
-  function ShowImage(params) {
-    return(
-      <AnimateSharedLayout>
-        <InfiniteScroll className="flex flex-wrap" dataLength={images.length} next={()=> setpage(page + 1)} hasMore={true}>
-          {images.map((img, index) => (
-          <motion.div
-          className="w-1/6 p-1 border flex justify-center"
-          key={img.urls.regular}
-          layoutId={img.urls.regular}
-          // initial={{opacity:0}}
-          // animate={{opacity:1}}
-          >
-            <Image
-              show={()=>{setShowPreview(img.urls.regular)}}
-              image={img.urls.regular}
-              handleRemove={handleRemove}
-              index={index}
-            />
-          </motion.div>
-          ))}
-        </InfiniteScroll>
-        <AnimatePresence>
-          {showPreview && (
-            <motion.section
-            key={showPreview}
-            initial={{opacity:0}}
-            animate={{opacity:1}}
-            layoutId={showPreview}
-            exit={{opacity:0, transition:{duration:2}}}
-            className="fixed w-full h-full flex justify-center items-center top-0 left-0 z-40" 
-            onClick={() =>{setShowPreview(false)}}
-            >
-              <div className="bg-white"> 
-                <img className="rounded-lg" src={showPreview} alt="images" width="300" height="auto">
-                </img>
-              </div>
-            </motion.section>
-          )}
-        </AnimatePresence>
-      </AnimateSharedLayout>
-    )
-  }
 
   const debounce = useDebounce();
 
@@ -77,10 +34,42 @@ export default function Images() {
 
       {errors.length > 0 && <div className="flex h-screen"><p className="m-auto">{errors[0]}</p></div>}
 
-      <ShowImage />
-
+      <AnimateSharedLayout>
+        <InfiniteScroll className="flex flex-wrap" dataLength={images.length} next={()=> setpage(page + 1)} hasMore={true}>
+          {images.map((img, index) => (
+          <motion.div
+          className="w-1/6 p-1 border flex justify-center"
+          key={img.urls.regular}
+          layoutId={img.urls.regular}
+          >
+            <Image
+              show={()=>{setShowPreview(img.urls.regular)}}
+              image={img.urls.regular}
+              handleRemove={handleRemove}
+              index={index}
+            />
+          </motion.div>
+          ))}
+        </InfiniteScroll>
+        <AnimatePresence>
+          {showPreview && (
+            <motion.section
+            initial={{opacity:0}}
+            animate={{opacity:1}}
+            layoutId={showPreview}
+            exit={{opacity:0}}
+            className="fixed w-full h-full flex justify-center items-center top-0 left-0 z-40" 
+            onClick={() =>{setShowPreview(false)}}
+            >
+              <div className="bg-white"> 
+                <img className="rounded-lg" src={showPreview} alt="images" width="300" height="auto">
+                </img>
+              </div>
+            </motion.section>
+          )}
+        </AnimatePresence>
+      </AnimateSharedLayout>
       {isLoading && <Loading />}
-     
     </section>
   )
 }

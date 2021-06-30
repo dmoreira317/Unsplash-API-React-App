@@ -1,8 +1,12 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import PropTypes from 'prop-types';
+import useTFClassify from "../utils/hooks/useTFClassify";
 
 function Image({ handleRemove, image, index, show }) {
   const [isHovering, setisHovering] = useState(false);
+  const [predict, predictions, , , ] = useTFClassify()
+  const imageRef = useRef()
+  
   return (
       <div
         className="relative"
@@ -13,13 +17,33 @@ function Image({ handleRemove, image, index, show }) {
           setisHovering(false);
         }}
       >
+        {predictions.length > 0 && ( 
+            <span className="absolute bg-gray-800 text-white rounded-lg shadow px-2 left-0 ml-5" 
+            // onClick={()=> setpredictions([])} need to fix this
+            >
+              {predictions.map((prediction) =>(
+                <div className="flex justify-between">    
+                <p>{prediction.className}</p>
+                <p>{Math.floor(prediction.probability * 100)}%</p>
+                </div>))          
+              }
+            </span>
+          )
+        }
+
         <i
           className={`fas fa-times absolute right-0 cursor-pointer opacity-25 hover:opacity-100 hover:text-red-600 ${
             isHovering ? "" : "hidden"
           }`}
           onClick={() => handleRemove(index)}
         ></i>
-        <img onClick={show} className="" src={image} alt="images" width="100%" height="auto"></img>
+         <i
+          className={`fas fa-search absolute left-0 cursor-pointer opacity-25 hover:opacity-100 hover:text-red-600 ${
+            isHovering ? "" : "hidden"
+          }`}
+          onClick={() => predict(imageRef.current)}
+        ></i>
+        <img ref={imageRef} crossOrigin="anonymous" onClick={show} className="" src={image} alt="images" width="100%" height="auto"></img>
       </div>
   );
 }
