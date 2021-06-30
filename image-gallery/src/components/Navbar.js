@@ -28,17 +28,24 @@ export default function Navbar() {
                         <li className="mr-5">
                             <NavLink activeClassName="underline text-blue-200" to="/gallery">Gallery</NavLink>
                         </li>
+                        <li className="mr-5">
+                            <NavLink to="/tensorflow" exact activeClassName="underline text-blue-200">TensorFlow</NavLink>
+                        </li>
                  </ul >
                   <ul className="flex justify-between px-10"> 
                     <li>
                         {
-                            isLoggedIn ?                        (<button onClick={Logout}>Logout</button>): (<NavLink activeClassName="underline text-blue-200" to="/login">Login</NavLink>)
+                            isLoggedIn
+                            ? (<button onClick={Logout}>Logout</button>)
+                            : (<NavLink activeClassName="underline text-blue-200" to="/login">Login</NavLink>)
                         }
                     </li>
-                    {!isLoggedIn &&
-                    (<li className="ml-5">
-                         <NavLink activeClassName="underline text-blue-200" to="/signup">Sign up</NavLink>
-                    </li>)}
+                    {
+                        !isLoggedIn &&
+                        (<li className="ml-5">
+                            <NavLink activeClassName="underline text-blue-200" to="/signup">Sign up</NavLink>
+                        </li>)
+                    }
                </ul>
         </nav>
     )
