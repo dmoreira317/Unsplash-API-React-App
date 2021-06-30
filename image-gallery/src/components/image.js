@@ -4,9 +4,9 @@ import useTFClassify from "../utils/hooks/useTFClassify";
 
 function Image({ handleRemove, image, index, show }) {
   const [isHovering, setisHovering] = useState(false);
-  const [predict, predictions, , , ] = useTFClassify()
+  const [predict, predictions, setpredictions, isLoading, setisLoading] = useTFClassify()
   const imageRef = useRef()
-  
+
   return (
       <div
         className="relative"
@@ -17,19 +17,18 @@ function Image({ handleRemove, image, index, show }) {
           setisHovering(false);
         }}
       >
+        {isLoading && (<span className="absolute bg-gray-800 text-white rounded-lg shadow px-2 left-0 ml-5"> <p>Fetching results...</p></span>)}
         {predictions.length > 0 && ( 
             <span className="absolute bg-gray-800 text-white rounded-lg shadow px-2 left-0 ml-5" 
-            // onClick={()=> setpredictions([])} need to fix this
-            >
-              {predictions.map((prediction) =>(
-                <div className="flex justify-between">    
-                <p>{prediction.className}</p>
-                <p>{Math.floor(prediction.probability * 100)}%</p>
-                </div>))          
-              }
+            onClick={()=>setpredictions([])}>
+                {predictions.map((prediction) => (
+                  <div className="flex justify-between">    
+                    <p>{prediction.className}</p>
+                    <p>{Math.floor(prediction.probability * 100)}%</p>
+                  </div>))
+                }
             </span>
-          )
-        }
+        )}
 
         <i
           className={`fas fa-times absolute right-0 cursor-pointer opacity-25 hover:opacity-100 hover:text-red-600 ${
