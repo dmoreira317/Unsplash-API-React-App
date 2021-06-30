@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-export default function Image({ handleRemove, image, index, show }) {
+function Image({ handleRemove, image, index, show }) {
   const [isHovering, setisHovering] = useState(false);
   return (
       <div
@@ -22,3 +22,22 @@ export default function Image({ handleRemove, image, index, show }) {
       </div>
   );
 }
+
+const types = {
+  function(props, propName){
+    if (typeof(props[propName]) !== 'function'){
+      return new Error(`'${propName}' must be a function, but received ${typeof props[propName]}`);
+    }
+  },
+  number(props, propName){
+    if (typeof(props[propName]) !== 'number'){
+      return new Error(`'${propName}' must be a number, but received ${typeof props[propName]}`);
+    }
+  },
+}
+
+Image.propTypes = {
+  show: types.function,
+  index: types.number,
+}
+export default Image;

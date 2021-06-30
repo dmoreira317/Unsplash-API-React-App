@@ -3,6 +3,7 @@
     "firebase": "^8.6.8",
     "formik": "^2.2.9",
     "framer-motion": "^4.1.17",
+    "prop-types": "^15.7.2",
     "react-router-dom": "^5.2.0",
     "yup": "^0.32.9"
   }

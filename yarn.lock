@@ -11,14 +11,14 @@
 
 "@emotion/is-prop-valid@^0.8.2":
   version "0.8.8"
-  resolved "https://registry.yarnpkg.com/@emotion/is-prop-valid/-/is-prop-valid-0.8.8.tgz#db28b1c4368a259b60a97311d6a952d4fd01ac1a"
+  resolved "https://registry.npmjs.org/@emotion/is-prop-valid/-/is-prop-valid-0.8.8.tgz"
   integrity sha512-u5WtneEAr5IDG2Wv65yhunPSMLIpuKsbuOktRojfrEiEvRyC85LgPMZI63cr7NUqT8ZIGdSVg8ZKGxIug4lXcA==
   dependencies:
     "@emotion/memoize" "0.7.4"
 
 "@emotion/memoize@0.7.4":
   version "0.7.4"
-  resolved "https://registry.yarnpkg.com/@emotion/memoize/-/memoize-0.7.4.tgz#19bf0f5af19149111c40d98bb0cf82119f5d9eeb"
+  resolved "https://registry.npmjs.org/@emotion/memoize/-/memoize-0.7.4.tgz"
   integrity sha512-Ja/Vfqe3HpuzRsG1oBtWTHk2PGZ7GR+2Vz5iYGelAw8dx32K0y7PjVuxK6z1nMpZOqAFsRUPCkK1YjJ56qJlgw==
 
 "@firebase/analytics-types@0.4.0":
@@ -421,14 +421,14 @@ framer-motion@^4.1.17:
 
 framesync@5.3.0:
   version "5.3.0"
-  resolved "https://registry.yarnpkg.com/framesync/-/framesync-5.3.0.tgz#0ecfc955e8f5a6ddc8fdb0cc024070947e1a0d9b"
+  resolved "https://registry.npmjs.org/framesync/-/framesync-5.3.0.tgz"
   integrity sha512-oc5m68HDO/tuK2blj7ZcdEBRx3p1PjrgHazL8GYEpvULhrtGIFbQArN6cQS2QhW8mitffaB+VYzMjDqBxxQeoA==
   dependencies:
     tslib "^2.1.0"
 
 hey-listen@^1.0.8:
   version "1.0.8"
-  resolved "https://registry.yarnpkg.com/hey-listen/-/hey-listen-1.0.8.tgz#8e59561ff724908de1aa924ed6ecc84a56a9aa68"
+  resolved "https://registry.npmjs.org/hey-listen/-/hey-listen-1.0.8.tgz"
   integrity sha512-COpmrF2NOg4TBWUJ5UVyaCU2A88wEMkUPK4hNqyCkqHbxT92BbvfjoSozkAIIm6XhicGlJHhFdullInrdhwU8Q==
 
 history@^4.9.0:
@@ -529,7 +529,7 @@ path-to-regexp@^1.7.0:
 
 popmotion@9.3.6:
   version "9.3.6"
-  resolved "https://registry.yarnpkg.com/popmotion/-/popmotion-9.3.6.tgz#b5236fa28f242aff3871b9e23721f093133248d1"
+  resolved "https://registry.npmjs.org/popmotion/-/popmotion-9.3.6.tgz"
   integrity sha512-ZTbXiu6zIggXzIliMi8LGxXBF5ST+wkpXGEjeTUDUOCdSQ356hij/xjeUdv0F8zCQNeqB1+PR5/BB+gC+QLAPw==
   dependencies:
     framesync "5.3.0"
@@ -542,9 +542,9 @@ promise-polyfill@8.1.3:
   resolved "https://registry.npmjs.org/promise-polyfill/-/promise-polyfill-8.1.3.tgz"
   integrity sha512-MG5r82wBzh7pSKDRa9y+vllNHz3e3d4CNj1PQE4BQYxLme0gKYYBm9YENq+UkEikyZ0XbiGWxYlVw3Rl9O/U8g==
 
-prop-types@^15.6.2:
+prop-types@^15.6.2, prop-types@^15.7.2:
   version "15.7.2"
-  resolved "https://registry.npmjs.org/prop-types/-/prop-types-15.7.2.tgz"
+  resolved "https://registry.yarnpkg.com/prop-types/-/prop-types-15.7.2.tgz#52c41e75b8c87e72b9d9360e0206b99dcbffa6c5"
   integrity sha512-8QQikdH7//R2vurIJSutZ1smHYTcLpRWEOlHnzcWHmBYrOGUysKwSsrC89BCiFj3CbrfJ/nXFdJepOVrY1GCHQ==
   dependencies:
     loose-envify "^1.4.0"
@@ -587,7 +587,7 @@ react-is@^16.6.0, react-is@^16.7.0, react-is@^16.8.1:
 
 react-router-dom@^5.2.0:
   version "5.2.0"
-  resolved "https://registry.npmjs.org/react-router-dom/-/react-router-dom-5.2.0.tgz"
+  resolved "https://registry.yarnpkg.com/react-router-dom/-/react-router-dom-5.2.0.tgz#9e65a4d0c45e13289e66c7b17c7e175d0ea15662"
   integrity sha512-gxAmfylo2QUjcwxI63RhQ5G85Qqt4voZpUXSEqCwykV0baaOTQDR1f0PmY8AELqIyVc0NEZUj0Gov5lNGcXgsA==
   dependencies:
     "@babel/runtime" "^7.1.2"
@@ -631,7 +631,7 @@ safe-buffer@>=5.1.0:
 
 style-value-types@4.1.4:
   version "4.1.4"
-  resolved "https://registry.yarnpkg.com/style-value-types/-/style-value-types-4.1.4.tgz#80f37cb4fb024d6394087403dfb275e8bb627e75"
+  resolved "https://registry.npmjs.org/style-value-types/-/style-value-types-4.1.4.tgz"
   integrity sha512-LCJL6tB+vPSUoxgUBt9juXIlNJHtBMy8jkXzUJSBzeHWdBu6lhzHqCvLVkXFGsFIlNa2ln1sQHya/gzaFmB2Lg==
   dependencies:
     hey-listen "^1.0.8"
@@ -693,7 +693,7 @@ xmlhttprequest@1.8.0:
 
 yup@^0.32.9:
   version "0.32.9"
-  resolved "https://registry.yarnpkg.com/yup/-/yup-0.32.9.tgz#9367bec6b1b0e39211ecbca598702e106019d872"
+  resolved "https://registry.npmjs.org/yup/-/yup-0.32.9.tgz"
   integrity sha512-Ci1qN+i2H0XpY7syDQ0k5zKQ/DoxO0LzPg8PAR/X4Mpj6DqaeCoIYEEjDJwhArh3Fa7GWbQQVDZKeXYlSH4JMg==
   dependencies:
     "@babel/runtime" "^7.10.5"
