@@ -1,10 +1,10 @@
-import React, {useEffect, useContext} from 'react'
+import React, {useContext} from 'react'
 import {NavLink, useHistory} from "react-router-dom"
 import firebase from "../config/firebase"
 import AppContext from '../store/AppContext'
 
 export default function Navbar() {
-    const [isLoggedIn, user] = useContext(AppContext)
+    const [isLoggedIn] = useContext(AppContext)
     const history = useHistory()
 
     function Logout(){

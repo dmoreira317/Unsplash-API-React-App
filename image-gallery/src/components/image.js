@@ -1,10 +1,7 @@
 import React, { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
 
 export default function Image({ handleRemove, image, index, show }) {
   const [isHovering, setisHovering] = useState(false);
-  
-
   return (
       <div
         className="relative"

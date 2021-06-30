@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from "react";
 import "./assets/css/styles.css";
-import {BrowserRouter as Router, Route, Switch, Redirect} from "react-router-dom"
+import {BrowserRouter as Router, Route, Switch} from "react-router-dom"
 import routes from "./utils/routes/routes_index";
 import Navbar from "./components/Navbar";
 import firebase from "firebase";
@@ -9,6 +9,7 @@ import AuthRoute from "./utils/routes/AuthRoute";
 import GuestRoute from "./utils/routes/GuestRoute";
 import Loading from "./components/Loading";
 import NotFound from "./page/404";
+import AnimatedRoute from "./utils/routes/AnimatedRoute";
 
 
 function App() {
@@ -39,15 +40,20 @@ function App() {
         <Switch>
           {routes.map((route, index) =>{
               if (route.protected === 'guest'){
-                return (<GuestRoute key={index} path={route.path} exact={route.exact} component={route.component}/>)
-              }
+                return (<GuestRoute key={index} path={route.path} exact={route.exact} >
+                    <route.component />
+                </GuestRoute>
+                )}
               
               if (route.protected === 'auth'){
-                return (<AuthRoute key={index} path={route.path} exact={route.exact} component={route.component}/>)
-              }
-              return (<Route key={index} path={route.path} exact={route.exact} component={route.component}/>
-              
-                  )}
+                return (<AuthRoute key={index} path={route.path} exact={route.exact}>
+                   <route.component />
+                </AuthRoute>
+              )}
+              return (<AnimatedRoute key={index} path={route.path} exact={route.exact}>
+                  <route.component />
+              </AnimatedRoute>
+              )}
             )}
             <Route path="*">
               <NotFound />
