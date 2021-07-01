@@ -7,5 +7,6 @@ This site intends to consume the unsplash API and display its images dynamically
 #### Framework, libraries and languages used
 `Javascript` `React` `tailwind CSS` `Font Awesome`
 
-#### Extra Info
+#### Deployed
+This site is deployed at [image-gallery](https://image-gallery-dlm317.netlify.app/)
 
