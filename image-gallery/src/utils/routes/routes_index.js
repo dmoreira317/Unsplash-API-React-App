@@ -5,7 +5,7 @@ import Gallery from "../../page/Gallery"
 import SignUp from "../../page/SignUp"
 import TensorFlow from "../../page/TensorFlow"
 
-export default [
+const routes_index = [
     {
         path: '/',
         exact: true,
@@ -33,3 +33,5 @@ export default [
         protected: null,
     },
 ]
+
+export default routes_index
