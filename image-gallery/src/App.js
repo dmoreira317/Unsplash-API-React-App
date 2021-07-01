@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from "react";
 import "./assets/css/styles.css";
 import {Route, Switch, useLocation} from "react-router-dom"
-import routes from "./utils/routes/routes_index";
+import routes_index from "./utils/routes/routes_index";
 import Navbar from "./components/Navbar";
 import firebase from "firebase";
 import AppContext from "./store/AppContext";
@@ -43,7 +43,7 @@ function App() {
         <Navbar />
         <AnimatePresence exitBeforeEnter initial={false}>
           <Switch key={location.pathname} location={location}>
-            {routes.map((route, index) =>{
+            {routes_index.map((route, index) =>{
                 if (route.protected === 'guest'){
                   return (<GuestRoute key={index} path={route.path} exact={route.exact} >
                       <route.component />

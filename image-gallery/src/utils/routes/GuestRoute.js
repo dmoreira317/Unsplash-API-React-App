@@ -13,5 +13,5 @@ export default function GuestRoute({children, ...rest}) {
             </AnimatedRoute>
         )}
     
-    return <Redirect to="/" /> 
+    return (<AnimatedRoute><Redirect to="/" /></AnimatedRoute>) 
 }

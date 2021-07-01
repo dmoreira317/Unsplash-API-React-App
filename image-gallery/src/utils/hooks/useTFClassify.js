@@ -18,5 +18,5 @@ export default function useTFClassify() {
         });
     }
 
-    return [predict, predictions, setpredictions, isLoading, setisLoading]
+    return { predict, predictions, setpredictions, isLoading, setisLoading }
 }

@@ -3,7 +3,7 @@ import useTFClassify from '../utils/hooks/useTFClassify';
 
 export default function TensorFlow() {
     const imageRef = useRef();
-    const [predict, predictions, setpredictions, isLoading, setisLoading] = useTFClassify()
+    const {predict, predictions, setpredictions, isLoading, setisLoading} = useTFClassify()
 
     return (
         <div className="flex justify-center">
